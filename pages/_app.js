@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
       .then((liff) => liff.default)
       .then((liff) => {
         liff
-          .init({liffId: process.env.NEXT_PUBLIC_LIFF_ID})
+          .init({liffId: "2001921632-Gg46V6Pg"})
           .then(() => {
               setLiffObject(liff);
             })
