@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     console.log(2)
     console.log(pageProps)
-    pageProps.liff.then(() => {
+    import("@line/liff").ready.then(() => {
       console.log("isLoggedIn")
       if (pageProps.liff.isLoggedIn()) {
         pageProps.liff
