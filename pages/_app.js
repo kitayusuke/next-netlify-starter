@@ -24,9 +24,6 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   useEffect(() => {
-    if (!pageProps.liff) {
-      return
-    }
     pageProps.liff.ready.then(() => {
       if (pageProps.liff.isLoggedIn()) {
         pageProps.liff
