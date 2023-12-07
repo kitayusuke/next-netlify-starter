@@ -32,6 +32,8 @@ function MyApp({Component, pageProps}) {
         pageProps.liff
           ?.getProfile()
           .then((profile) => {
+            console.log("プロフィール")
+            console.log(profile)
             setProfile(profile)
           })
           .catch((err) => {
