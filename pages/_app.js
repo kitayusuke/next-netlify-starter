@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }) {
 
   // Execute liff.init() when the app is initialized
   useEffect(() => {
+    console.log("start")
     // to avoid `window is not defined` error
     import("@line/liff")
       .then((liff) => liff.default)
