@@ -1,7 +1,8 @@
 import '@styles/globals.css'
 import {useState, useEffect} from "react";
+import liff from "@line/liff/core";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({Component, pageProps}) {
   const [liffObject, setLiffObject] = useState(null);
   const [liffError, setLiffError] = useState(null);
   const [profile, setProfile] = useState(undefined)
@@ -10,26 +11,22 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     console.log("start")
     // to avoid `window is not defined` error
-    import("@line/liff")
-      .then((liff) => liff.default)
-      .then((liff) => {
-        liff
-          .init({liffId: "2001921632-Gg46V6Pg"})
-          .then(() => {
-            console.log(1)
-            console.log(liff)
-              setLiffObject(liff);
-            })
-          .catch((error) => {
-            setLiffError(error.toString());
-          });
+    liff
+      .init({liffId: "2001921632-Gg46V6Pg"})
+      .then(() => {
+        console.log(1)
+        console.log(liff)
+        setLiffObject(liff);
+      })
+      .catch((error) => {
+        setLiffError(error.toString());
       });
   }, []);
 
   useEffect(() => {
     console.log(2)
     console.log(pageProps)
-    import("@line/liff").ready.then(() => {
+    liff.ready.then(() => {
       console.log("isLoggedIn")
       if (pageProps.liff.isLoggedIn()) {
         pageProps.liff
