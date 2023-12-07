@@ -39,6 +39,14 @@ function MyApp({Component, pageProps}) {
           })
       } else {
         pageProps.liff?.login();
+        pageProps.liff
+          ?.getProfile()
+          .then((profile) => {
+            setProfile(profile)
+          })
+          .catch((err) => {
+            console.error({err})
+          })
       }
     })
   }, [liffObject])
