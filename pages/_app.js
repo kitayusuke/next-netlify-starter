@@ -25,6 +25,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     pageProps.liff.ready.then(() => {
+      console.log("isLoggedIn")
       if (pageProps.liff.isLoggedIn()) {
         pageProps.liff
           ?.getProfile()
