@@ -1,8 +1,7 @@
 import '@styles/globals.css'
 import {useState, useEffect} from "react";
-import liff from "@line/liff/core";
 
-function MyApp({Component, pageProps}) {
+function MyApp({ Component, pageProps }) {
   const [liffObject, setLiffObject] = useState(null);
   const [liffError, setLiffError] = useState(null);
   const [profile, setProfile] = useState(undefined)
@@ -11,49 +10,33 @@ function MyApp({Component, pageProps}) {
   useEffect(() => {
     console.log("start")
     // to avoid `window is not defined` error
-    liff
-      .init({liffId: "2001921632-Gg46V6Pg"})
-      .then(() => {
-        console.log(1)
-        console.log(liff)
-        setLiffObject(liff);
-      })
-      .catch((error) => {
-        setLiffError(error.toString());
+    import("@line/liff")
+      .then((liff) => liff.default)
+      .then((liff) => {
+        liff
+          .init({liffId: "2001921632-Gg46V6Pg"})
+          .then(() => {
+              setLiffObject(liff);
+            })
+          .catch((error) => {
+            setLiffError(error.toString());
+          });
       });
   }, []);
 
   useEffect(() => {
-    console.log(2)
-    console.log(pageProps)
-    liff.ready.then(() => {
-      console.log("isLoggedIn")
-      if (pageProps.liff.isLoggedIn()) {
-        liff
-          ?.getProfile()
-          .then((profile) => {
-            console.log("プロフィール1")
-            console.log(profile)
-            setProfile(profile)
-          })
-          .catch((err) => {
-            console.error({err})
-          })
-      } else {
-        liff?.login();
-        liff
-          ?.getProfile()
-          .then((profile) => {
-            console.log("プロフィール2")
-            setProfile(profile)
-          })
-          .catch((err) => {
-            console.error({err})
-          })
-      }
-    })
-  }, [liffObject])
-
+    if (!pageProps.liff?.isLoggedIn()) {
+      pageProps.liff?.login();
+    }
+    pageProps.liff
+      ?.getProfile()
+      .then((profile) => {
+        setProfile(profile)
+      })
+      .catch((err) => {
+        console.error({err})
+      })
+  }, [liffObject]);
 
   // Provide `liff` object and `liffError` object
   // to page component as property
@@ -61,7 +44,6 @@ function MyApp({Component, pageProps}) {
   pageProps.liffError = liffError;
   // login user
   pageProps.user = profile;
-  console.log(3)
   console.log(pageProps)
   return <Component {...pageProps} />
 }
