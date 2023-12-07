@@ -15,6 +15,8 @@ function MyApp({ Component, pageProps }) {
         liff
           .init({liffId: "2001921632-Gg46V6Pg"})
           .then(() => {
+            console.log(1)
+            console.log(liff)
               setLiffObject(liff);
             })
           .catch((error) => {
@@ -24,6 +26,8 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   useEffect(() => {
+    console.log(2)
+    console.log(pageProps)
     pageProps.liff.ready.then(() => {
       console.log("isLoggedIn")
       if (pageProps.liff.isLoggedIn()) {
@@ -48,6 +52,7 @@ function MyApp({ Component, pageProps }) {
   pageProps.liffError = liffError;
   // login user
   pageProps.user = profile;
+  console.log(3)
   console.log(pageProps)
   return <Component {...pageProps} />
 }
