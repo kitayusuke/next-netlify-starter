@@ -29,10 +29,10 @@ function MyApp({Component, pageProps}) {
     liff.ready.then(() => {
       console.log("isLoggedIn")
       if (pageProps.liff.isLoggedIn()) {
-        pageProps.liff
+        liff
           ?.getProfile()
           .then((profile) => {
-            console.log("プロフィール")
+            console.log("プロフィール1")
             console.log(profile)
             setProfile(profile)
           })
@@ -40,10 +40,11 @@ function MyApp({Component, pageProps}) {
             console.error({err})
           })
       } else {
-        pageProps.liff?.login();
-        pageProps.liff
+        liff?.login();
+        liff
           ?.getProfile()
           .then((profile) => {
+            console.log("プロフィール2")
             setProfile(profile)
           })
           .catch((err) => {
