@@ -24,18 +24,25 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   useEffect(() => {
-    if (!pageProps.liff?.isLoggedIn()) {
-      pageProps.liff?.login();
+    if (!pageProps.liff) {
+      return
     }
-    pageProps.liff
-      ?.getProfile()
-      .then((profile) => {
-        setProfile(profile)
-      })
-      .catch((err) => {
-        console.error({err})
-      })
-  }, [liffObject]);
+    pageProps.liff.ready.then(() => {
+      if (pageProps.liff.isLoggedIn()) {
+        pageProps.liff
+          ?.getProfile()
+          .then((profile) => {
+            setProfile(profile)
+          })
+          .catch((err) => {
+            console.error({err})
+          })
+      } else {
+        pageProps.liff?.login();
+      }
+    })
+  }, [liffObject])
+
 
   // Provide `liff` object and `liffError` object
   // to page component as property
