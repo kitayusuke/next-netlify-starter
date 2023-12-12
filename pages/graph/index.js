@@ -8,6 +8,7 @@ const Graph = ({user, liff}) => {
   const chartComponentRef = useRef(null);
   const [data1, setData1] = useState(120);
   const [data2, setData2] = useState(170);
+  const [gtype, setGtype] = useState('area');
 
   return (
     <div style={{height: "100%"}}>
@@ -16,7 +17,10 @@ const Graph = ({user, liff}) => {
       </Head>
 
       <main style={{height: "100%", width: "100%" , padding: 8}}>
-        <div style={{width: "100%", marginBottom: 5, marginTop: 30}}>
+        <label style={{marginRight: 20}}><input type="radio" onClick={() => setGtype('area')} value="area" checked={gtype === 'area'} />area</label>
+        <label style={{marginRight: 20}}><input type="radio" onClick={() => setGtype('column')} value="column" checked={gtype === 'column'}/>column</label>
+        <label><input type="radio" onClick={() => setGtype('line')} value="line" checked={gtype === 'line'} />line</label>
+        <div style={{width: "100%", marginBottom: 5}}>
           <hr />
           <div style={{marginLeft: 5}}>
             <label> 1月</label>
@@ -29,7 +33,7 @@ const Graph = ({user, liff}) => {
           </div>
         </div>
         <div style={{height: "50%", width: "100%"}}>
-          <Form data1={data1} data2={data2} />
+          <Form data1={data1} data2={data2} gtype={gtype} />
         </div>
         <hr />
         <div style={{height: "50%", width: "100%", marginTop: 20}}>
@@ -40,7 +44,7 @@ const Graph = ({user, liff}) => {
                 text: '<a href="/graph?year=2024">＜</a>2023年<a href="/graph?year=2024">＞</a>'
               },
               series: [{
-                type: 'area',
+                type: gtype,
                 data: [150, 160, 150, 170, 250, 160, 150, 170, 150, 160, 150, 170],
                 name: 'kWh',
               }],

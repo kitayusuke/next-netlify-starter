@@ -4,14 +4,14 @@ import {useRef, useState} from "react";
 import Head from "next/head";
 
 
-const Form = ({user, liff, data1, data2}) => {
+const Form = ({user, liff, data1, data2, gtype}) => {
   const chartComponentRef = useRef(null);
   const op = {
     title: {
       text: '<a href="/graph?year=2024">＜</a>2023年<a href="/graph?year=2024">＞</a>'
     },
     series: [{
-      type: 'area',
+      type: gtype,
       data: [data1, data2],
       name: 'kWh',
     }],
