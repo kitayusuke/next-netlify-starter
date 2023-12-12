@@ -18,8 +18,8 @@ const Home = ({user, liff}) => {
           <div style={{backgroundColor: "blue", width: "100%"}}>
             <button onClick={() => liff.closeWindow()}>閉じる liff.closeWindow()</button>
           </div>
-          <div style={{backgroundColor: "yellow", width: "100%"}}><a href="/detail"><span
-            style={{color: "red"}}>詳細</span> </a>
+          <div onClick={location.href = '/detail'} style={{backgroundColor: "yellow", width: "100%"}}><span
+            style={{color: "red"}}>詳細</span>
           </div>
         </div>
 
