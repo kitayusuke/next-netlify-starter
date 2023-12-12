@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-const Detail = ({ user }) => {
+const Detail = ({ user, liff }) => {
   return (
     <div style={{height: "100%"}}>
       <Head>
@@ -11,7 +11,8 @@ const Detail = ({ user }) => {
 
       <main style={{height: "100%"}}>
         <div style={{display: "flex", width: "100%", height: "100%", backgroundColor: "red"}}>
-          <button onClick={() => window.open('', '_self').close()}>閉じる</button>
+          <button onClick={() => window.open('', '_self').close()}>閉じる window.open('', '_self').close()</button>
+          <button onClick={() => liff.closeWindow()}>閉じる liff.closeWindow()</button>
         </div>
       </main>
     </div>
