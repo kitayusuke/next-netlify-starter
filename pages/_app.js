@@ -8,34 +8,34 @@ function MyApp({ Component, pageProps }) {
 
   // Execute liff.init() when the app is initialized
   useEffect(() => {
-    console.log("start")
-    // to avoid `window is not defined` error
-    import("@line/liff")
-      .then((liff) => liff.default)
-      .then((liff) => {
-        liff
-          .init({liffId: "2001921632-Gg46V6Pg"})
-          .then(() => {
-              setLiffObject(liff);
-            })
-          .catch((error) => {
-            setLiffError(error.toString());
-          });
-      });
+    // console.log("start")
+    // // to avoid `window is not defined` error
+    // import("@line/liff")
+    //   .then((liff) => liff.default)
+    //   .then((liff) => {
+    //     liff
+    //       .init({liffId: "2001921632-Gg46V6Pg"})
+    //       .then(() => {
+    //           setLiffObject(liff);
+    //         })
+    //       .catch((error) => {
+    //         setLiffError(error.toString());
+    //       });
+    //   });
   }, []);
 
   useEffect(() => {
-    if (!pageProps.liff?.isLoggedIn()) {
-      pageProps.liff?.login();
-    }
-    pageProps.liff
-      ?.getProfile()
-      .then((profile) => {
-        setProfile(profile)
-      })
-      .catch((err) => {
-        console.error({err})
-      })
+    // if (!pageProps.liff?.isLoggedIn()) {
+    //   pageProps.liff?.login();
+    // }
+    // pageProps.liff
+    //   ?.getProfile()
+    //   .then((profile) => {
+    //     setProfile(profile)
+    //   })
+    //   .catch((err) => {
+    //     console.error({err})
+    //   })
   }, [liffObject]);
 
   // Provide `liff` object and `liffError` object
