@@ -40,7 +40,7 @@ const Graph = ({user, liff}) => {
                 text: '<a href="/graph?year=2024">＜</a>2023年<a href="/graph?year=2024">＞</a>'
               },
               series: [{
-                type: 'line',
+                type: 'area',
                 data: [150, 160, 150, 170, 250, 160, 150, 170, 150, 160, 150, 170],
                 name: 'kWh',
               }],

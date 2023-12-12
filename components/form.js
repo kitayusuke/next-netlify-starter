@@ -11,7 +11,7 @@ const Form = ({user, liff, data1, data2}) => {
       text: '<a href="/graph?year=2024">＜</a>2023年<a href="/graph?year=2024">＞</a>'
     },
     series: [{
-      type: 'line',
+      type: 'area',
       data: [data1, data2],
       name: 'kWh',
     }],
