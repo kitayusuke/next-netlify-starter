@@ -15,20 +15,24 @@ const Graph = ({user, liff}) => {
         <title>タイトル</title>
       </Head>
 
-      <main style={{height: "100%", width: "100%"}}>
-        <div style={{height: "50%", width: "100%", display: "flex"}}>
-          <Form data1={data1} data2={data2} />
-          <div style={{marginLeft: 5, marginTop: 50}}>
+      <main style={{height: "100%", width: "100%" , padding: 8}}>
+        <div style={{width: "100%", marginBottom: 5, marginTop: 30}}>
+          <hr />
+          <div style={{marginLeft: 5}}>
             <label> 1月</label>
             <input onChange={(v) => setData1(Number(v.target.value))} value={data1} type="text"/>
           </div>
 
-          <div style={{marginLeft: 5, marginTop: 50}}>
+          <div style={{marginLeft: 5}}>
             <label> 2月</label>
             <input onChange={(v) => setData2(Number(v.target.value))} value={data2} type="text"/>
           </div>
         </div>
-        <div style={{height: "50%", width: "50%", marginTop: 100}}>
+        <div style={{height: "50%", width: "100%"}}>
+          <Form data1={data1} data2={data2} />
+        </div>
+        <hr />
+        <div style={{height: "50%", width: "100%", marginTop: 20}}>
           <HighchartsReact
             highcharts={Highcharts}
             options={{

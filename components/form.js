@@ -23,9 +23,9 @@ const Form = ({user, liff, data1, data2}) => {
         format: '{value}kWh'
       },
       title: {
-        text: 'y軸のタイトル'
+        text: ''
       },
-      tickInterval: 100,
+      tickInterval: 50,
     },
   }
 
