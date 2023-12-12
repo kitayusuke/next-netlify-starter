@@ -11,7 +11,7 @@ const Detail = ({ user }) => {
 
       <main style={{height: "100%"}}>
         <div style={{display: "flex", width: "100%", height: "100%", backgroundColor: "red"}}>
-          <button onClick={() => window.close()}>閉じる</button>
+          <button onClick={() => window.open('', '_self').close()}>閉じる</button>
         </div>
       </main>
     </div>
