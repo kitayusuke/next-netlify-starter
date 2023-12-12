@@ -17,9 +17,9 @@ const Graph = ({user, liff}) => {
       </Head>
 
       <main style={{height: "100%", width: "100%" , padding: 8}}>
-        <label style={{marginRight: 20}}><input type="radio" onClick={() => setGtype('area')} value="area" checked={gtype === 'area'} />area</label>
-        <label style={{marginRight: 20}}><input type="radio" onClick={() => setGtype('column')} value="column" checked={gtype === 'column'}/>column</label>
-        <label><input type="radio" onClick={() => setGtype('line')} value="line" checked={gtype === 'line'} />line</label>
+        <label style={{marginRight: 20}}><input type="radio" name="type" onClick={() => setGtype('area')} value="area" defaultChecked={gtype === 'area'} />area</label>
+        <label style={{marginRight: 20}}><input type="radio" name="type" onClick={() => setGtype('column')} value="column"/>column</label>
+        <label><input type="radio" name="type" onClick={() => setGtype('line')} value="line"/>line</label>
         <div style={{width: "100%", marginBottom: 5}}>
           <hr />
           <div style={{marginLeft: 5}}>
