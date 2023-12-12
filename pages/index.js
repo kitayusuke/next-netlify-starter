@@ -11,7 +11,7 @@ const Home  = ({ user }) => {
 
       <main style={{height: "100%"}}>
         <a href="/detail" style={{display: "flex", width: "100%", height: "50%"}}>
-          <div style={{backgroundColor: "red", width: "100%", height: "100%"}}><span >displayName：</span>{user?.displayName}</div>
+          <div style={{backgroundColor: "red", width: "100%", height: "100%"}}><button onClick={() => window.close()}>閉じる</button></div>
           <div style={{backgroundColor: "blue", width: "100%"}}><span style={{color: "red"}}>userID：</span>{user?.userId?.substr(0, 10)}...</div>
           <div style={{backgroundColor: "yellow", width: "100%"}}><span style={{color: "red"}}>userID：</span>{user?.userId?.substr(0, 10)}...</div>
         </a>
