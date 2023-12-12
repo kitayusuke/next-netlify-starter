@@ -10,18 +10,18 @@ const Home = ({user, liff}) => {
       </Head>
 
       <main style={{height: "100%"}}>
+        <div style={{display: "flex", width: "100%", height: "50%"}}>
+          <div style={{backgroundColor: "red", width: "100%", height: "100%"}}>
+            <button onClick={() => window.open('', '_self').close()}>閉じる window.open('', '_self').close()</button>
+          </div>
 
-        <div style={{backgroundColor: "red", width: "100%", height: "100%"}}>
-          <button onClick={() => window.open('', '_self').close()}>閉じる window.open('', '_self').close()</button>
-        </div>
-        <a href="/detail" style={{display: "flex", width: "100%", height: "50%"}}>
           <div style={{backgroundColor: "blue", width: "100%"}}>
             <button onClick={() => liff.closeWindow()}>閉じる liff.closeWindow()</button>
           </div>
-          <div style={{backgroundColor: "yellow", width: "100%"}}><span
-            style={{color: "red"}}>userID：</span>{user?.userId?.substr(0, 10)}...
+          <div style={{backgroundColor: "yellow", width: "100%"}}><a href="/detail"><span
+            style={{color: "red"}}>詳細</span> </a>
           </div>
-        </a>
+        </div>
 
 
         <div style={{backgroundColor: "blue", width: "100%"}}><span
