@@ -2,7 +2,7 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import {useRef, useState} from "react";
 import Head from "next/head";
-import Form from "./Form";
+import Form from "@components/form";
 
 const Graph = ({user, liff}) => {
   const chartComponentRef = useRef(null);
